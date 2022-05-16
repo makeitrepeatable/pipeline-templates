@@ -14,7 +14,6 @@ jobs:
         environments: ${{ fromJson(inputs.environments) }}
     runs-on: ubuntu-latest      
     steps:
-      - name: 'hello world'
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
