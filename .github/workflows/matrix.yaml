@@ -1,15 +1,17 @@
 name: Matrix Deploy
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environments:
+        description: "Environments"
+        type: string
   
 jobs:
   deploy:
     strategy:
       matrix:
-        environment:
-        - env1
-        - env2
+        environments: ${{ fromJson(inputs.environments) }}
     runs-on: ubuntu-latest      
     steps:
       - name: 'hello world'
